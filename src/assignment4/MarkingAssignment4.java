@@ -10,9 +10,6 @@ import java.util.Arrays;
  * @author JDM
  */
 
-/**
-
-
 public class MarkingAssignment4 extends Assignment4 {
 
     public static void main(String[] args) {
@@ -52,10 +49,10 @@ public class MarkingAssignment4 extends Assignment4 {
 
 
         if (isInLanguage(input)){
-            System.out.println("Word \"" + input + "\" IS a word of the L language");
+            System.out.println("Word \"" + input + "\" IS a word of the L language\n\n");
         }
         else {
-            System.out.println("Word \"" + input + "\" is NOT a word of the L language");
+            System.out.println("Word \"" + input + "\" is NOT a word of the L language \n\n");
         }
 
 
@@ -90,7 +87,3 @@ public class MarkingAssignment4 extends Assignment4 {
 
     }
 }
-
-
-
- **/

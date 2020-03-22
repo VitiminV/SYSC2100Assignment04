@@ -124,15 +124,17 @@ public class Assignment4 {
         }
         //otherwise, loop through the word
         for (int i=0; i < word.length(); i++) {
+            //if we hit a '$', then we're at the middle of the word...
+            if (word.charAt(i) == '$') {
+                //...so set the middle flag to true...
+                middle = true;
+                //...and restart the loop.
+                continue;
+            }
             //if we haven't passed the middle of the word...
             if (!middle) {
                 //...put the current letter on the stack.
                 letterStack.push(word.charAt(i));
-            }
-            //if we hit a '$', then we're at the middle of the word...
-            if (word.charAt(i) == '$') {
-                //so set the middle flag to true.
-                middle = true;
             }
             //if we've passed the '$' character...
             else {
@@ -157,7 +159,7 @@ public class Assignment4 {
      * @return An int that is final value of the concatenated and converted total.
      */
     public static int convertToNumber(String str) {
-        Stack numberStack = new Stack<>();
+        Stack<Character> numberStack = new Stack<Character>();
         int returnNumber = 0;
         int place = 1;
         //for all the characters in the string...
@@ -170,8 +172,11 @@ public class Assignment4 {
         }
         //while there are still numbers on the stack...
         while (!numberStack.empty()) {
+            //...convert the object on the stack into a usable int...
+            String currentChar = numberStack.pop().toString();
+            int toAdd = Integer.parseInt(currentChar);
             //...add the current digit, multiplied by current decimal place, to the total...
-            returnNumber = returnNumber + ((int) numberStack.pop() * place);
+            returnNumber = returnNumber + (toAdd * place);
             //...and increment the decimal place by multiplying by 10.
             place = place * 10;
         }
